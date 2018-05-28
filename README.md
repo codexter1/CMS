@@ -49,10 +49,11 @@ python3 manage.py runserver
 6) Online store options to sell merch and ingredients.
 
 ## Wireframes:
-```
+Header Form:
 ![alt text](./images/headerform.png)
-```
+Menu Form:
 ![alt text](./images/menuform.png)
+Homepage:
 ![alt text](./images/homepage.png)
 
 **TRELLO:** <https://trello.com/b/nVvnsX3z/unit-4-project>

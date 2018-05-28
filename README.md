@@ -49,7 +49,9 @@ python3 manage.py runserver
 6) Online store options to sell merch and ingredients.
 
 ## Wireframes:
+```
 ![alt text](./images/headerform.png)
+```
 ![alt text](./images/menuform.png)
 ![alt text](./images/homepage.png)
 

@@ -48,12 +48,20 @@ python3 manage.py runserver
 5) Inter-site linking capabilities paired with google api to show locations.
 6) Online store options to sell merch and ingredients.
 
+
 ## Wireframes:
-Header Form:
+**Header Form:**
+
 ![alt text](./images/headerform.png)
-Menu Form:
+
+**Menu Form:**
+
 ![alt text](./images/menuform.png)
-Homepage:
+
+**Homepage:**
+
 ![alt text](./images/homepage.png)
+
+
 
 **TRELLO:** <https://trello.com/b/nVvnsX3z/unit-4-project>

@@ -1,10 +1,10 @@
 # WEB CHEF
  A *CMS* that enables restaurant owners to create beautiful, intuitive websites with ease, employing a variety of templates, customer interaction handlers, and personalized content.
 
-## Why Create This App?
+## Why Create This?
 We believe that CMS are a powerful tool, not only for their usefulness in easy website management, but also for the lessons we as developers can learn from creating them. We have chosen to cater to the restaurant owner, because we see CMS technology having an emphasized value to the restaurant business model. Our conclusion here is drawn from two main assessments:
 1) That a restaurant's budget typically does no allocate for big web-spending.
-2) Because restaurants share a singular purpose , we believe that by narrowing in on our templates' functional requirements, we can expand on their UX options. 
+2) Because restaurants share a singular purpose , we believe that by narrowing in on our templates' functional requirements, we can expand on their UX options.
 
 ## Developers:
 1) Suspenseful Spence

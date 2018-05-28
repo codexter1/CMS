@@ -5,5 +5,11 @@ from django.contrib.auth.models import User
 
 class Header(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=100)
     image = models.ImageField('Label', upload_to='path/')
+
+
+class Content(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    body = models.CharField(max_length=9999)

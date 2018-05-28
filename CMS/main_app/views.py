@@ -11,6 +11,7 @@ def header_input(request):
         newheader.save()
     return HttpResponseRedirect('/display')
 
+
 def index(request):
     header = Header.objects.all()
     return render(request, 'index.html', {'header': header})

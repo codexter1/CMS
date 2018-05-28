@@ -1,16 +1,19 @@
 from django.shortcuts import render
+from .forms import FrontPageForm
 from .models import Header
 
 # Create your views here.
 
-
-# def header_input(request):
-#     form = HeaderForm(request.POST)
-#     if form.is_valid():
-#         newheader = form.save(commit = False)
-#         newheader.save()
-#     return HttpResponseRedirect('/display')
-
 def index(request):
     header = Header.objects.all()
+    form = FrontPageForm();
     return render(request, 'index.html', { 'header': header })
+
+def post_frontpage_header(request):
+    form = FrontPageForm(request.POST)
+    if form.is_valid():
+        form = Form(
+            title = form.cleaned_data['title'],
+            image = form.cleaned_data['image'],)
+        form.save()
+        return HttpResponseRedirect('/')

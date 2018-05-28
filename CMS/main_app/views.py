@@ -13,4 +13,4 @@ from .models import Header
 
 def index(request):
     header = Header.objects.all()
-    return render(request, 'home.html', { 'header': header })
+    return render(request, 'index.html', { 'header': header })

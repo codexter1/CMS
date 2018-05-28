@@ -11,6 +11,22 @@
 2) **Postgres**: Database Management.
 3) **HTML/CSS, Javascript**: Front-end functionality and design.
 
+## Installation:
+Inside your chosen directory, clone our repo:
+```
+git clone https://github.com/vpdacoder/CMS
+```
+After cloning, you will need to create your database and make the required migrations:
+```
+createdb cmd
+python3 manage.py migrate
+```
+Setup an admin super-user, and run your server:
+```
+python3 manage.py createsuperuser
+python3 manage.py runserver
+```
+
 
 ## User Stories:
 1) **Young Jewish**, is a Jewish/American rapper who has recently dropped out of relevancy within the rap game. He spent most of his scratch on jewelry, strippers, and substance. Poor guy didn't think to invest, and now his family is disappointed in his poor money management. His grandmother is the only one to offer help. She's a mean cook, and knows a guy who will buy her grandson's cuban links. They gather the money to start up a small restaurant in downtown Memphis, and all their friends frequent the location. Soon they realize that they need to expand their market, and advertise to the local populace. Young Jewish, or Asher as his birth-name goes, remembers how his PR agent had emphasized internet presence and the importance of creating a brand. He discovers Web Chef, and instantly digs their style. He chooses them because of their fresh templates, and the ease of customization achieved through their administrator panel. He is also psyched to use the customer interaction interface to connect with his fans *ahem*, customers.
@@ -32,6 +48,9 @@
 5) Inter-site linking capabilities paired with google api to show locations.
 6) Online store options to sell merch and ingredients.
 
-
+## Wireframes:
+![alt text](./images/headerform.png)
+![alt text](./images/menuform.png)
+![alt text](./images/homepage.png)
 
 **TRELLO:** <https://trello.com/b/nVvnsX3z/unit-4-project>

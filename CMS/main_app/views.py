@@ -4,6 +4,7 @@ from .models import Header
 from django.http import HttpResponse, HttpResponseRedirect
 # Create your views here.
 
+
 def index(request):
     header = Header.objects.all()
     return render(request, 'index.html', {'header': header})

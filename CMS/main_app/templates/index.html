@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="{% static 'materialize.css' %}"  media="screen,projection"/>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  </head>
+  <body>
+
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="#!">one</a></li>
+      <li><a href="#!">two</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">three</a></li>
+    </ul>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">Logo</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="sass.html">Front Page</a></li>
+          <li><a href="badges.html">Menu</a></li>
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- <div class="row">
+      <form action="post_url/" method="post"> -->
+        <!-- <div class="file-field input-field"> -->
+          <!-- <div class="btn"> -->
+            <!-- <span>Add</span> -->
+            <!-- <input type="text"> -->
+          <!-- </div> -->
+          <!-- <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Banner URL">
+          </div>
+        </div> -->
+      <!-- </form>
+    <form class="col s12"> -->
+      <!-- <div class="row">
+        <div class="input-field col s12">
+          <input id="header" type="text" class="validate">
+          <label for="header">Change Your Heading</label>
+        </div>
+      </div> -->
+    <!-- <input class="btn waves-effect waves-light" type="submit" value="Submit" />
+    </form>
+  </div> -->
+
+  <form action="post_url/" method="POST">
+      {% csrf_token %}
+      <input type="text" name="image" value="">
+      <input type="text" name="title" value="">
+      <input class="btn waves-effect waves-light" type="submit" value="Submit" />
+  </form>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="{% static 'app.js' %}"></script>
+   <script src="{% static 'materialize.js' %}"></script>
+  </body>
+</html>

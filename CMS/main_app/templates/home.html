@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home Page</title>
+  </head>
+  <body>
+    {% for header in header %}
+
+
+    <img src="{{header.image}}" alt="background image">
+    <h1>{{header.title}}</h1>
+    {% endfor %}
+  </body>
+</html>

@@ -8,6 +8,7 @@ from .models import Header
 
 =======
 >>>>>>> upstream/develop
+
 def index(request):
     header = Header.objects.all()
     return render(request, 'index.html', {'header': header})

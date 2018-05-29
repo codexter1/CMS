@@ -7,9 +7,9 @@ We believe that CMS are a powerful tool, not only for their usefulness in easy w
 2) Because restaurants share a singular purpose , we believe that by narrowing in on our templates' functional requirements, we can expand on their UX options.
 
 ## Developers:
-1) Suspenseful Spence
-2) Villainous P
-3) Terrible Tom
+1) Spencer Colaco
+2) Vaibhav Patel
+3) Thomas Arbuthnot
 
 ## Technology Stack:
 1) **Python, Django**: Back-End/Server-side.
@@ -23,7 +23,8 @@ git clone https://github.com/vpdacoder/CMS
 ```
 After cloning, you will need to create your database and make the required migrations:
 ```
-createdb cmd
+createdb cms
+
 python3 manage.py migrate
 ```
 Setup an admin super-user, and run your server:

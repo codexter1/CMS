@@ -1,9 +1,10 @@
 from django import forms
+from .models import Header
 
-class FrontPageForm(forms.Form):
-    title = forms.CharField(max_length=200)
-    image = forms.URLField()
-
+class FrontPageForm(forms.ModelForm):
+    class Meta:
+        model = Header
+        fields = ['image','title']
 
 class LoginForm(forms.Form):
     username = forms.CharField(label="User Name", max_length=64)

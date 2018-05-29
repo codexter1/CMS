@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect
 
 
 # Create your views here.
@@ -21,13 +22,14 @@ def home(request):
     return render(request, 'home.html', { 'header': header })
 
 def post_frontpage_header(request):
+    Header.objects.all().delete()
     form = FrontPageForm(request.POST)
-    if form.is_valid():
-        form = Form(
-            title = form.cleaned_data['title'],
-            image = form.cleaned_data['image'],)
-        form.save()
-        return HttpResponseRedirect('/')
+    if form.is_valid:
+        header = form.save(commit = False)
+        header.user = request.user
+        header.save()
+        return HttpResponseRedirect('/home')
+
 
 # User/login/out views
 
@@ -47,7 +49,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('home')
+            return HttpResponseRedirect('/')
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
@@ -72,6 +74,7 @@ def login_view(request):
     else:
         form = LoginForm()
         return render(request, 'login.html', {'form': form})
+
 
 
 

@@ -16,7 +16,7 @@
     {% block content %}
 
     <h1>Sign Up</h1>
-    <form action="hdr_frm" method="POST" class="col s12">
+    <form action="." method="POST" class="col s12">
       {% csrf_token %}
       {{ form.as_p}}
       <!-- <div class="input-field col s6">

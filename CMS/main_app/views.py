@@ -54,7 +54,7 @@ def signup(request):
             return HttpResponseRedirect('/hdr_frm')
     else:
         form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+        return render(request, 'signup.html', {'form': form})
 
 
 

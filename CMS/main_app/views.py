@@ -14,16 +14,16 @@ def landing(request):
     return render(request, 'landing.html')
 
 def index(request):
-    header = Header.objects.all()
-    return render(request, 'index.html', { 'form': header })
+    return render(request, 'index.html')
 
 def home(request):
-    header = Header.objects.all()
-    form = FrontPageForm()
+    user = request.user
+    header = Header.objects.filter(user=user)
     return render(request, 'home.html', { 'header': header })
 
 def post_frontpage_header(request):
-    Header.objects.all().delete()
+    # Header.objects.all().delete()
+    # Header.objects.get(username=username).delete()
     form = FrontPageForm(request.POST)
     if form.is_valid:
         header = form.save(commit = False)

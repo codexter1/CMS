@@ -1,4 +1,4 @@
-from .forms import FrontPageForm, LoginForm
+from .forms import FrontPageForm, LoginForm, SignUpForm
 from .models import Header
 from django.shortcuts import render
 from django.contrib.auth.models import User
@@ -10,6 +10,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 # Create your views here.
 
+def landing(request):
+    return render(request, 'landing.html')
 
 def index(request):
     header = Header.objects.all()
@@ -33,25 +35,19 @@ def post_frontpage_header(request):
 
 # User/login/out views
 
-# define our user, define relationship with a template that belongs to the user. return their rendered page.
-
-# def profile(request, username):
-#     user = User.objects.get(username=username)
-#     return render(request,'home.html', {'username': username})
-
 
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
+            raw_password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('hdr_frm/')
     else:
-        form = UserCreationForm()
+        form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
 
 
@@ -66,7 +62,7 @@ def login_view(request):
             if user is not None:
                 if user. is_active:
                     login(request, user)
-                    return HttpResponseRedirect('/')
+                    return HttpResponseRedirect('hdr_frm/')
                 else:
                     print("This account has been disabled.")
             else:

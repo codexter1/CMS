@@ -9,6 +9,8 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link type="text/css" rel="stylesheet" href="{% static 'materialize.css' %}"  media="screen,projection"/>
+    <!-- style.css -->
+    <link type="text/css" rel="stylesheet" href="{% static 'style.css' %}"/>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   </head>
@@ -23,7 +25,8 @@
     </ul>
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo right">Logo</a>
+        <a id="preview" href="/home" class="btn waves-effect waves-light right">Preview</a>
+        <a href="#" class="brand-logo right">Web Chef</a>
         <a href="{% url 'logout' %}" class="btn waves-effect waves-light">Logout</a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
           <li><a href="sass.html">Front Page</a></li>
@@ -62,8 +65,9 @@
       {% csrf_token %}
       <input type="text" name="image" value="">
       <input type="text" name="title" value="">
-      <input class="btn waves-effect waves-light" type="submit" value="Submit"/>
+      <input id="cmsubmit" class="btn waves-effect waves-light" type="submit" value="Submit"/>
   </form>
+
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

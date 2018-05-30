@@ -9,3 +9,9 @@ class FrontPageForm(forms.ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField(label="User Name", max_length=64)
     password = forms.CharField(widget=forms.PasswordInput())
+
+
+class SignUpForm(forms.Form):
+    username = forms.CharField(label="User Name", max_length=64)
+    password = forms.CharField(widget=forms.PasswordInput())
+    # re-enter = forms.Charfield()

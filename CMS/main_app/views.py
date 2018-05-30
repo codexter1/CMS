@@ -2,7 +2,7 @@ from .forms import FrontPageForm, LoginForm
 from .models import Header
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
@@ -15,11 +15,15 @@ def landing(request):
 
 def index(request):
     header = Header.objects.all()
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/login')
     return render(request, 'index.html', {'header': header})
 
 def home(request):
     user = request.user
     header = Header.objects.filter(user=user)
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/login')
     return render(request, 'home.html', { 'header': header })
 
 
@@ -29,6 +33,8 @@ def post_frontpage_header(request):
     previousHeader.delete()
     # Header.objects.get(username=username).delete()
     form = FrontPageForm(request.POST)
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/login')
     if form.is_valid:
         header = form.save(commit = False)
         header.user = request.user
@@ -74,6 +80,10 @@ def login_view(request):
         form = LoginForm()
         return render(request, 'login.html', {'form': form})
 
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
 
 
 

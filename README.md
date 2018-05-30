@@ -1,15 +1,38 @@
 # WEB CHEF
  A *CMS* that enables restaurant owners to create beautiful, intuitive websites with ease, employing a variety of templates, customer interaction handlers, and personalized content.
 
+## Why Create This?
+We believe that CMS are a powerful tool, not only for their usefulness in easy website management, but also for the lessons we as developers can learn from creating them. We have chosen to cater to the restaurant owner, because we see CMS technology having an emphasized value to the restaurant business model. Our conclusion here is drawn from two main assessments:
+1) That a restaurant's budget typically does no allocate for big web-spending.
+2) Because restaurants share a singular purpose , we believe that by narrowing in on our templates' functional requirements, we can expand on their UX options.
+
 ## Developers:
-1) Suspenseful Spence
-2) Villainous P
-3) Terrible Tom
+1) Spencer Colaco
+2) Vaibhav Patel
+3) Thomas Arbuthnot
 
 ## Technology Stack:
 1) **Python, Django**: Back-End/Server-side.
 2) **Postgres**: Database Management.
 3) **HTML/CSS, Javascript**: Front-end functionality and design.
+
+## Installation:
+Inside your chosen directory, clone our repo:
+```
+git clone https://github.com/vpdacoder/CMS
+```
+After cloning, you will need to create your database and make the required migrations:
+```
+createdb cms
+
+python3 manage.py migrate
+```
+Setup an admin super-user, and run your server:
+```
+python3 manage.py createsuperuser
+python3 manage.py runserver
+open your browser to localhost:8000
+```
 
 
 ## User Stories:
@@ -31,6 +54,20 @@
 4) Site analytics
 5) Inter-site linking capabilities paired with google api to show locations.
 6) Online store options to sell merch and ingredients.
+
+
+## Wireframes:
+**Header Form:**
+
+![alt text](./images/headerform.png)
+
+**Menu Form:**
+
+![alt text](./images/menuform.png)
+
+**Homepage:**
+
+![alt text](./images/homepage.png)
 
 
 

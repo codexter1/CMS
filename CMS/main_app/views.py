@@ -5,11 +5,12 @@ from .models import Header
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    header = Header.objects.all()
+    return render(request, 'index.html', { 'form': header })
 
 def home(request):
     header = Header.objects.all()
-    form = FrontPageForm();
+    form = FrontPageForm()
     return render(request, 'home.html', { 'header': header })
 
 def post_frontpage_header(request):

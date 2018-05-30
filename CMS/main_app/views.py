@@ -2,11 +2,10 @@ from .forms import FrontPageForm, LoginForm
 from .models import Header
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -16,22 +15,26 @@ def landing(request):
 
 def index(request):
     header = Header.objects.all()
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/login')
     return render(request, 'index.html', {'header': header})
 
-# @login_required(login_url='login/')
 def home(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/login')
     user = request.user
     header = Header.objects.filter(user=user)
     return render(request, 'home.html', { 'header': header })
 
 
-@login_required(login_url='login/')
 def post_frontpage_header(request):
     user = request.user
     previousHeader = Header.objects.filter(user=user)
     previousHeader.delete()
     # Header.objects.get(username=username).delete()
     form = FrontPageForm(request.POST)
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/login')
     if form.is_valid:
         header = form.save(commit = False)
         header.user = request.user
@@ -54,7 +57,7 @@ def signup(request):
             return HttpResponseRedirect('/hdr_frm')
     else:
         form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+        return render(request, 'signup.html', {'form': form})
 
 
 
@@ -77,6 +80,10 @@ def login_view(request):
         form = LoginForm()
         return render(request, 'login.html', {'form': form})
 
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
 
 
 

@@ -39,3 +39,21 @@ h1 {
 #right-margin-50 {
   margin-right: 50px;
 }
+
+#cmsubmit {
+  color: white;
+}
+
+#displaylogout {
+  margin-left: 170px;
+}
+
+#displayedit {
+  float: right;
+  margin-right: 10px;
+}
+
+#preview {
+  margin-right: 170px;
+  margin-top: 10px;
+}

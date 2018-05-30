@@ -31,6 +31,7 @@ Setup an admin super-user, and run your server:
 ```
 python3 manage.py createsuperuser
 python3 manage.py runserver
+open your browser to localhost:8000
 ```
 
 

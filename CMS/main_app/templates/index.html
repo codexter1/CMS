@@ -33,29 +33,31 @@
     </nav>
 
     <!-- <div class="row">
-      <form action="post_url/" method="post"> -->
-        <!-- <div class="file-field input-field"> -->
-          <!-- <div class="btn"> -->
-            <!-- <span>Add</span> -->
-            <!-- <input type="text"> -->
-          <!-- </div> -->
-          <!-- <div class="file-path-wrapper">
+      <form action="post_url/" method="post">
+        <div class="file-field input-field">
+           <div class="btn">
+             <span>Add</span>
+             <input type="text">
+           </div>
+           <div class="file-path-wrapper">
             <input class="file-path validate" type="text" placeholder="Banner URL">
           </div>
-        </div> -->
-      <!-- </form>
-    <form class="col s12"> -->
-      <!-- <div class="row">
-        <div class="input-field col s12">
-          <input id="header" type="text" class="validate">
-          <label for="header">Change Your Heading</label>
         </div>
-      </div> -->
-    <!-- <input class="btn waves-effect waves-light" type="submit" value="Submit" />
+      </form>
+    <form class="col s12">
+       <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="text" class="validate">
+          <label for="email">Change Your Heading</label>
+          <button class="btn waves-effect waves-light" type="submit" name="home">Submit<i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+     <input class="btn waves-effect waves-light" type="submit" value="Submit" />
     </form>
   </div> -->
 
-  <form action="post_url/" method="POST">
+  <form action="/post_url/" method="POST">
       {% csrf_token %}
       <input type="text" name="image" value="">
       <input type="text" name="title" value="">
@@ -63,9 +65,8 @@
   </form>
 
 
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <script src="{% static 'app.js' %}"></script>
-   <script src="{% static 'materialize.js' %}"></script>
+  <script src="{% static 'app.js' %}"></script>
+  <script src="{% static 'materialize.js' %}"></script>
   </body>
 </html>

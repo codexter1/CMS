@@ -18,8 +18,8 @@ def index(request):
     return render(request, 'index.html', {'header': header})
 
 def home(request):
-    header = Header.objects.all()
-    form = FrontPageForm();
+    user = request.user
+    header = Header.objects.filter(user=user)
     return render(request, 'home.html', { 'header': header })
 
 

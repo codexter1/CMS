@@ -6,6 +6,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -17,12 +18,14 @@ def index(request):
     header = Header.objects.all()
     return render(request, 'index.html', {'header': header})
 
-
+@login_required(login_url='login/')
 def home(request):
     header = Header.objects.all()
     form = FrontPageForm();
     return render(request, 'home.html', { 'header': header })
 
+
+@login_required(login_url='login/')
 def post_frontpage_header(request):
     Header.objects.all().delete()
     form = FrontPageForm(request.POST)

@@ -15,19 +15,25 @@ def landing(request):
     return render(request, 'landing.html')
 
 def index(request):
+<<<<<<< HEAD
     header = Header.objects.all()
     return render(request, 'index.html', {'header': header})
 
 @login_required(login_url='login/')
+=======
+    return render(request, 'index.html')
+
+>>>>>>> upstream/develop
 def home(request):
-    header = Header.objects.all()
-    form = FrontPageForm();
+    user = request.user
+    header = Header.objects.filter(user=user)
     return render(request, 'home.html', { 'header': header })
 
 
 @login_required(login_url='login/')
 def post_frontpage_header(request):
-    Header.objects.all().delete()
+    # Header.objects.all().delete()
+    # Header.objects.get(username=username).delete()
     form = FrontPageForm(request.POST)
     if form.is_valid:
         header = form.save(commit = False)

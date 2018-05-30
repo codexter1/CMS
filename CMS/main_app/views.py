@@ -27,7 +27,10 @@ def home(request):
 
 @login_required(login_url='login/')
 def post_frontpage_header(request):
-    Header.objects.all().delete()
+    user = request.user
+    previousHeader = Header.objects.filter(user=user)
+    previousHeader.delete()
+    # Header.objects.get(username=username).delete()
     form = FrontPageForm(request.POST)
     if form.is_valid:
         header = form.save(commit = False)
@@ -48,7 +51,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return HttpResponseRedirect('hdr_frm/')
+            return HttpResponseRedirect('')
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
@@ -65,7 +68,7 @@ def login_view(request):
             if user is not None:
                 if user. is_active:
                     login(request, user)
-                    return HttpResponseRedirect('hdr_frm')
+                    return HttpResponseRedirect('/hdr_frm')
                 else:
                     print("This account has been disabled.")
             else:

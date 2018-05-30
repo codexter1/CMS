@@ -57,7 +57,7 @@
     </form>
   </div> -->
 
-  <form action="post_url/" method="POST">
+  <form action="/post_url/" method="POST">
       {% csrf_token %}
       <input type="text" name="image" value="">
       <input type="text" name="title" value="">
@@ -66,7 +66,7 @@
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <script src="{% static 'app.js' %}"></script>
-   <script src="{% static 'materialize.js' %}"></script>
+  <script src="{% static 'app.js' %}"></script>
+  <script src="{% static 'materialize.js' %}"></script>
   </body>
 </html>

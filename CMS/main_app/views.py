@@ -18,10 +18,10 @@ def index(request):
     header = Header.objects.all()
     return render(request, 'index.html', {'header': header})
 
-@login_required(login_url='login/')
+# @login_required(login_url='login/')
 def home(request):
-    header = Header.objects.all()
-    form = FrontPageForm();
+    user = request.user
+    header = Header.objects.filter(user=user)
     return render(request, 'home.html', { 'header': header })
 
 
@@ -51,7 +51,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return HttpResponseRedirect('')
+            return HttpResponseRedirect('/hdr_frm')
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})

@@ -20,10 +20,10 @@ def index(request):
     return render(request, 'index.html', {'header': header})
 
 def home(request):
-    user = request.user
-    header = Header.objects.filter(user=user)
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/login')
+    user = request.user
+    header = Header.objects.filter(user=user)
     return render(request, 'home.html', { 'header': header })
 
 

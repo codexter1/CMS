@@ -61,11 +61,7 @@ def login_view(request):
             if user is not None:
                 if user. is_active:
                     login(request, user)
-<<<<<<< HEAD
-                    return HttpResponseRedirect('/home')
-=======
                     return HttpResponseRedirect('hdr_frm/')
->>>>>>> 885e70bb46c41b1523cae0997d15416580b6f87b
                 else:
                     print("This account has been disabled.")
             else:

@@ -1,4 +1,4 @@
-from .forms import FrontPageForm, LoginForm, SignUpForm
+from .forms import FrontPageForm, LoginForm
 from .models import Header
 from django.shortcuts import render
 from django.contrib.auth.models import User
@@ -15,25 +15,19 @@ def landing(request):
     return render(request, 'landing.html')
 
 def index(request):
-<<<<<<< HEAD
     header = Header.objects.all()
     return render(request, 'index.html', {'header': header})
 
 @login_required(login_url='login/')
-=======
-    return render(request, 'index.html')
-
->>>>>>> upstream/develop
 def home(request):
-    user = request.user
-    header = Header.objects.filter(user=user)
+    header = Header.objects.all()
+    form = FrontPageForm();
     return render(request, 'home.html', { 'header': header })
 
 
 @login_required(login_url='login/')
 def post_frontpage_header(request):
-    # Header.objects.all().delete()
-    # Header.objects.get(username=username).delete()
+    Header.objects.all().delete()
     form = FrontPageForm(request.POST)
     if form.is_valid:
         header = form.save(commit = False)
@@ -47,7 +41,7 @@ def post_frontpage_header(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -56,7 +50,7 @@ def signup(request):
             login(request, user)
             return HttpResponseRedirect('hdr_frm/')
     else:
-        form = SignUpForm()
+        form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
 
@@ -71,7 +65,7 @@ def login_view(request):
             if user is not None:
                 if user. is_active:
                     login(request, user)
-                    return HttpResponseRedirect('hdr_frm/')
+                    return HttpResponseRedirect('hdr_frm')
                 else:
                     print("This account has been disabled.")
             else:

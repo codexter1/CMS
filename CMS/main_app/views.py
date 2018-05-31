@@ -26,6 +26,11 @@ def home(request):
     header = Header.objects.filter(user=user)
     return render(request, 'home.html', { 'header': header })
 
+# MENU DEMO
+def menudemo(request):
+    user = request.user
+    items = Item.objects.filter(user=user)
+    return render(request, 'menu_demo.html', {'items': items })
 
 
 # our form views:
@@ -42,7 +47,7 @@ def post_frontpage_header(request):
         header = form.save(commit = False)
         header.user = request.user
         header.save()
-        return HttpResponseRedirect('')
+        return HttpResponseRedirect('/home')
 
 
 def post_frontpage_about(request):
@@ -74,10 +79,10 @@ def post_frontpage_item(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/login')
     if form.is_valid:
-        item = form.save(commit=false)
+        item = form.save(commit = False)
         item.user = request.user
         item.save()
-        return HttpResponseRedirect('')
+        return HttpResponseRedirect('/menudemo')
 
 
 

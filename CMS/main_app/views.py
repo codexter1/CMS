@@ -1,5 +1,5 @@
-from .forms import FrontPageForm, LoginForm
-from .models import Header
+from .forms import FrontPageForm, LoginForm, MenuItem
+from .models import Header, Item, About
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 
 
-# Create your views here.
+# Our page views.
 
 def landing(request):
     return render(request, 'landing.html')
@@ -27,6 +27,9 @@ def home(request):
     return render(request, 'home.html', { 'header': header })
 
 
+
+# our form views:
+
 def post_frontpage_header(request):
     user = request.user
     previousHeader = Header.objects.filter(user=user)
@@ -39,11 +42,47 @@ def post_frontpage_header(request):
         header = form.save(commit = False)
         header.user = request.user
         header.save()
-        return HttpResponseRedirect('/home')
+        return HttpResponseRedirect('')
+
+
+def post_frontpage_about(request):
+    user = request.user
+    previousArcticle = About.objects.filter(user=user)
+    previousArticle.delete()
+    form = AboutForm(request.POST)
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/login')
+    if form.is_valid:
+        article = form.save(commit = False)
+        article.user = request.user
+        article.save()
+        return HttpResponseRedirect('')
+
+#
+# def post_frontpage_section(request):
+#     form = MenuSection(request.POST)
+#     if not request.user.is_authenticated:
+#         return HttpResponseRedirect('/login')
+#     if form.is_valid:
+#         section = form.save(commit=false)
+#         section.user =request.user
+#         section.save()
+#         return HttpResponseRedirect('')
+
+def post_frontpage_item(request):
+    form = MenuItem(request.POST)
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/login')
+    if form.is_valid:
+        item = form.save(commit=false)
+        item.user = request.user
+        item.save()
+        return HttpResponseRedirect('')
+
+
 
 
 # User/login/out views
-
 
 def signup(request):
     if request.method == 'POST':

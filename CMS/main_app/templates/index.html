@@ -61,14 +61,28 @@
     </form>
   </div> -->
 
-  <form action="/post_url/" method="POST">
+  <h1 class="formhs">Give a background and Page Title!</h1>
+  <form id="headerform" action="/post_url/" method="POST">
       {% csrf_token %}
-      <input type="text" name="image" value="">
-      <input type="text" name="title" value="">
+      <input type="text" name="image" value="" placeholder="place image url here">
+      <input type="text" name="title" value="" placeholder="place your header title here">
       <input id="cmsubmit" class="btn waves-effect waves-light" type="submit" value="Submit"/>
   </form>
 
+  <!-- <form class="sectionform" action="/section" method="post">
+      {% csrf_token %}
+      <input type="text" name="section_title" value="" placeholder="section title">
+      <input id="sectsubmit" class="btn waves-effect waves-light" type="submit" value="Submit"/>
+  </form> -->
 
+
+  <h1 class="formhs">Make Menu Items!</h1>
+  <form id="menuitemform" action="/item" method="post">
+      {% csrf_token %}
+      <input type="text" name="menu_item" value="" placeholder="menu item">
+      <input type="text" name="item_info" value="" placeholder="item description">
+      <input id="itemsubmit" class="btn waves-effect waves-light" type="submit" value="Submit"/>
+  </form>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="{% static 'app.js' %}"></script>

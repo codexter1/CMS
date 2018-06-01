@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Home Page</title>
+    <title>Web Chef</title>
     <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -35,9 +35,9 @@
         <a id="displaylogout" href="{% url 'logout' %}" class="btn waves-effect waves-light">Logout</a>
         <a id="displayedit" href="/hdr_frm" class="btn-large waves-effect waves-light">Edit</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down" >
-          <li><a href="sass.html">Home</a></li>
-          <li><a href="badges.html">Menu</a></li>
-          <li id="right-margin-50"><a href="collapsible.html">Our Story</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#menujump">Menu</a></li>
+          <li id="right-margin-50"><a href="#articlejump">Our Story</a></li>
         </ul>
       </div>
     </nav>
@@ -49,10 +49,19 @@
     </header>
 
     {% for article in article %}
+
+    <div id="articlejump" class="articlewrapper">
+      <h2> {{ article.article_title }} </h2>
+      <h4> {{ article.article }} </h4>
+    </div>
+
+    {% endfor %}
+
+    {% for item in items %}
     
-    <div class="articlewrapper">
-      <h2> {{ article.article }} </h2>
-      <h4> {{ article.article_title }} </h4>
+    <div id="menujump">
+      <h2> {{ item.menu_item }} </h2>
+      <h4> {{ item.item_info }} </h4>
     </div>
 
     {% endfor %}

@@ -25,7 +25,8 @@ def home(request):
     user = request.user
     header = Header.objects.filter(user=user)
     article = About.objects.filter(user=user)
-    return render(request, 'home.html', { 'header': header , 'article': article})
+    items = Item.objects.filter(user=user)
+    return render(request, 'home.html', { 'header': header , 'article': article, 'items':items})
 
 # MENU DEMO
 def menudemo(request):
@@ -83,7 +84,7 @@ def post_frontpage_item(request):
         item = form.save(commit = False)
         item.user = request.user
         item.save()
-        return HttpResponseRedirect('/menudemo')
+        return HttpResponseRedirect('/home')
 
 
 

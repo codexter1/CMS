@@ -48,6 +48,15 @@
       </section>
     </header>
 
+    {% for article in article %}
+    
+    <div class="articlewrapper">
+      <h2> {{ article.article }} </h2>
+      <h4> {{ article.article_title }} </h4>
+    </div>
+
+    {% endfor %}
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{% static 'app.js' %}"></script>
     <script src="{% static 'materialize.js' %}"></script>

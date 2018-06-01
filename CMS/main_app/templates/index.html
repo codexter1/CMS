@@ -64,8 +64,8 @@
   <h1 class="formhs">Give a background and Page Title!</h1>
   <form id="headerform" action="/post_url/" method="POST">
       {% csrf_token %}
-      <input type="text" name="image" value="" placeholder="place image url here">
-      <input type="text" name="title" value="" placeholder="place your header title here">
+      <input type="text" name="image" value="" placeholder="image url here">
+      <input type="text" name="title" value="" placeholder="header title here">
       <input id="cmsubmit" class="btn waves-effect waves-light" type="submit" value="Submit"/>
   </form>
 
@@ -82,6 +82,14 @@
       <input type="text" name="menu_item" value="" placeholder="menu item">
       <input type="text" name="item_info" value="" placeholder="item description">
       <input id="itemsubmit" class="btn waves-effect waves-light" type="submit" value="Submit"/>
+  </form>
+
+  <h1 class="formhs">Write About Your Business</h1>
+  <form id="articleform" action="/about/" method="post">
+    {% csrf_token %}
+    <input type="text" name="article_title" value="" placeholder="article title here">
+    <input type="text" name="article" value="" placeholder="about your business..">
+    <input id="articlesubmit" class="btn waves-effect waves-light" type="submit" value="Submit"/>
   </form>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

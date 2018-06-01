@@ -1,4 +1,4 @@
-from .forms import FrontPageForm, LoginForm, MenuItem
+from .forms import FrontPageForm, LoginForm, MenuItem, AboutForm
 from .models import Header, Item, About
 from django.shortcuts import render
 from django.contrib.auth.models import User
@@ -24,7 +24,8 @@ def home(request):
         return HttpResponseRedirect('/login')
     user = request.user
     header = Header.objects.filter(user=user)
-    return render(request, 'home.html', { 'header': header })
+    article = About.objects.filter(user=user)
+    return render(request, 'home.html', { 'header': header , 'article': article})
 
 # MENU DEMO
 def menudemo(request):
@@ -52,7 +53,7 @@ def post_frontpage_header(request):
 
 def post_frontpage_about(request):
     user = request.user
-    previousArcticle = About.objects.filter(user=user)
+    previousArticle = About.objects.filter(user=user)
     previousArticle.delete()
     form = AboutForm(request.POST)
     if not request.user.is_authenticated:
@@ -61,7 +62,7 @@ def post_frontpage_about(request):
         article = form.save(commit = False)
         article.user = request.user
         article.save()
-        return HttpResponseRedirect('')
+        return HttpResponseRedirect('/home')
 
 #
 # def post_frontpage_section(request):

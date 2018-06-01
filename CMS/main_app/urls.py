@@ -11,5 +11,6 @@ urlpatterns = [
 	path('logout/', views.logout_view, name="logout"),
 	# path('section/', views.post_frontpage_section, name="section")
     path('menudemo/', views.menudemo, name='menudemo'),
-	path('item/', views.post_frontpage_item, name="item")
+	path('item/', views.post_frontpage_item, name="item"),
+	path('about/',views.post_frontpage_about, name="about"),
 ]

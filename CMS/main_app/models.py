@@ -29,5 +29,8 @@ class Item(models.Model):
 
 class About(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    article_title = models.CharField(max_length=60)
     article = models.CharField(max_length=2000)
-    about_title = models.CharField(max_length=60)
+
+    def __str__(self):
+        return self.article and self.article 

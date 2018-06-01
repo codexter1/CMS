@@ -21,7 +21,7 @@ class MenuItem(forms.ModelForm):
 class AboutForm(forms.ModelForm):
     class Meta:
         model = About
-        fields = ['about_title','article']
+        fields = ['article_title','article']
 
 class LoginForm(forms.Form):
     username = forms.CharField(label="User Name", max_length=64)

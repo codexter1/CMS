@@ -15,53 +15,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   </head>
   <body>
+    <div class="cms-nav">
+      <a href="{% url 'logout' %}" class="btn waves-effect waves-light">Logout</a>
+      <a href="/home" class="btn waves-effect waves-light">Preview</a>
+    </div>
 
-    <!-- Dropdown Structure -->
-    <ul id="dropdown1" class="dropdown-content">
-      <li><a href="#!">one</a></li>
-      <li><a href="#!">two</a></li>
-      <li class="divider"></li>
-      <li><a href="#!">three</a></li>
-    </ul>
-    <nav>
-      <div class="nav-wrapper">
-        <a id="preview" href="/home" class="btn waves-effect waves-light right">Preview</a>
-        <a href="#" class="brand-logo right">Web Chef</a>
-        <a href="{% url 'logout' %}" class="btn waves-effect waves-light">Logout</a>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="sass.html">Front Page</a></li>
-          <li><a href="badges.html">Menu</a></li>
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <!-- <div class="row">
-      <form action="post_url/" method="post">
-        <div class="file-field input-field">
-           <div class="btn">
-             <span>Add</span>
-             <input type="text">
-           </div>
-           <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" placeholder="Banner URL">
-          </div>
-        </div>
-      </form>
-    <form class="col s12">
-       <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="text" class="validate">
-          <label for="email">Change Your Heading</label>
-          <button class="btn waves-effect waves-light" type="submit" name="home">Submit<i class="material-icons right">send</i>
-          </button>
-        </div>
-      </div>
-     <input class="btn waves-effect waves-light" type="submit" value="Submit" />
-    </form>
-  </div> -->
-
-  <h1 class="formhs">Give a background and Page Title!</h1>
+  <h3 class="formhs">Give a background and Page Title!</h3>
   <form id="headerform" action="/post_url/" method="POST">
       {% csrf_token %}
       <input type="text" name="image" value="" placeholder="image url here">
@@ -69,14 +28,8 @@
       <input id="cmsubmit" class="btn waves-effect waves-light" type="submit" value="Submit"/>
   </form>
 
-  <!-- <form class="sectionform" action="/section" method="post">
-      {% csrf_token %}
-      <input type="text" name="section_title" value="" placeholder="section title">
-      <input id="sectsubmit" class="btn waves-effect waves-light" type="submit" value="Submit"/>
-  </form> -->
-
-
-  <h1 class="formhs">Make Menu Items!</h1>
+<div class="cms-form">
+  <h3 class="formhs">Make Menu Items!</h3>
   <form id="menuitemform" action="/item/" method="post">
       {% csrf_token %}
       <input type="text" name="menu_item" value="" placeholder="menu item">
@@ -84,13 +37,14 @@
       <input id="itemsubmit" class="btn waves-effect waves-light" type="submit" value="Submit"/>
   </form>
 
-  <h1 class="formhs">Write About Your Business</h1>
+  <h3 class="formhs">Write About Your Business</h3>
   <form id="articleform" action="/about/" method="post">
     {% csrf_token %}
     <input type="text" name="article_title" value="" placeholder="article title here">
     <input type="text" name="article" value="" placeholder="about your business..">
     <input id="articlesubmit" class="btn waves-effect waves-light" type="submit" value="Submit"/>
   </form>
+</div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="{% static 'app.js' %}"></script>

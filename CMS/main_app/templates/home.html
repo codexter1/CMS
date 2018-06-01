@@ -24,13 +24,15 @@
   </style>
 
   <body>
+    <div class="cms-nav">
+      <a href="{% url 'logout' %}" class="btn waves-effect waves-light">Logout</a>
+      <a href="/hdr_frm" class="btn waves-effect waves-light">Edit</a>
+    </div>
     <nav id="bg-transparent">
       <div class="nav-wrapper" >
         <div id="left-margin-50">
           <a href="#" class="brand-logo">Dope</a>
         </div>
-        <a id="displaylogout" href="{% url 'logout' %}" class="btn waves-effect waves-light">Logout</a>
-        <a id="displayedit" href="/hdr_frm" class="btn-large waves-effect waves-light">Edit</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down" >
           <li><a href="#">Home</a></li>
           <li><a href="#menujump">Menu</a></li>
@@ -44,31 +46,33 @@
         <h1>{{header.title}}</h1>
       </section>
     </header>
+
     <main>
-      <div class="menu-container">
+      <div class="menu-container" id="menujump">
         <div class="section-title">
           <h2>Our Menu</h2>
         </div>
         <div class="grid">
-
           {% for item in items %}
-          <div class="menu-item" id="menujump">
+          <div class="menu-item">
             <h5> {{ item.menu_item }} </h5>
             <p> {{ item.item_info }} </p>
             <hr>
           </div>
           {% endfor %}
-
         </div>
       </div>
+
+      {% for article in article %}
+      <div class="ourstory-container" id="articlejump">
+        <div class="ourstory-description">
+          <h2> {{ article.article_title }} </h2>
+          <p> {{ article.article }} </p>
+        </div>
+      </div>
+      {% endfor %}
     </main>
 
-    {% for article in article %}
-    <div class="articlewrapper" id="articlejump">
-      <h2> {{ article.article_title }} </h2>
-      <h4> {{ article.article }} </h4>
-    </div>
-    {% endfor %}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{% static 'app.js' %}"></script>

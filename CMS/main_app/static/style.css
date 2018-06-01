@@ -15,8 +15,20 @@ h1 {
   margin-top: 20px;
 }
 
+h2 {
+  margin-top: 0;
+}
+
 a:hover {
   text-decoration: underline;
+}
+
+.cms-nav {
+  background: #232323;
+}
+
+.cms-nav, p {
+  margin: 0;
 }
 
 .container {
@@ -33,29 +45,38 @@ a:hover {
 
 .menu-container {
   background: white;
-  /* height: 1000px; */
+  padding-bottom: 50px
+}
+
+.ourstory-container {
+  background-image: url("https://images.unsplash.com/photo-1481798699994-481e7c0a8282?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4c02fb2ca219a8fffb55f292aa483861&auto=format&fit=crop&w=1950&q=80");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.ourstory-description {
+  background: rgba(0,0,0,.5);
+  color: white;
+  text-align: center;
+  margin: 0 150px;
+  padding: 150px;
 }
 
 .section-title {
   text-align: center;
-  padding: 15px;
-  margin: 15px;
+  padding: 25px 15px 15px 15px;
+  margin: 0;
   background: white;
 }
 
 .grid {
-  /* display: grid;
-  grid-template-columns: auto auto auto; */
   padding: 0 250px;
 }
 
 .menu-item {
-  /* display: inline-block;
-  float: left; */
   text-align: center;
   margin: 0 15px;
   padding: 15px;
-  /* width: 300px; */
 }
 
 #bg-transparent {
@@ -73,6 +94,7 @@ a:hover {
 
 #cmsubmit {
   color: white;
+  /* background-color: rgb(66, 134, 244); */
 }
 
 #itemsubmit {
@@ -88,28 +110,22 @@ a:hover {
   margin-bottom: 40px;
 }
 
-.formhs {
-  color: #ee6e73;
-}
-
-#displaylogout {
-  margin-left: 170px;
-}
-
-#displayedit {
-  float: right;
-  margin-right: 10px;
-}
-
 #preview {
   margin-right: 170px;
   margin-top: 10px;
 }
 
-/* #menujump {
-  background: white;
+/*          landing           */
+.landing-content {
+  padding-top: 250px;
+  text-align: center;
 }
 
-#articlejump {
-  background: red;
-} */
+/*          CMS form          */
+.cms-form {
+  color: black;
+}
+
+.cms-button {
+  background-color: rgb(66, 134, 244);
+}

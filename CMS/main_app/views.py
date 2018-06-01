@@ -1,37 +1,50 @@
-from .forms import FrontPageForm, LoginForm
-from .models import Header
+from .forms import FrontPageForm, LoginForm, MenuItem, AboutForm
+from .models import Header, Item, About
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth.decorators import login_required
 
 
-# Create your views here.
+# Our page views.
 
 def landing(request):
     return render(request, 'landing.html')
 
 def index(request):
     header = Header.objects.all()
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/login')
     return render(request, 'index.html', {'header': header})
 
-# @login_required(login_url='login/')
 def home(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/login')
     user = request.user
     header = Header.objects.filter(user=user)
-    return render(request, 'home.html', { 'header': header })
+    article = About.objects.filter(user=user)
+    items = Item.objects.filter(user=user)
+    return render(request, 'home.html', { 'header': header , 'article': article, 'items':items})
+
+# MENU DEMO
+def menudemo(request):
+    user = request.user
+    items = Item.objects.filter(user=user)
+    return render(request, 'menu_demo.html', {'items': items })
 
 
-@login_required(login_url='login/')
+# our form views:
+
 def post_frontpage_header(request):
     user = request.user
     previousHeader = Header.objects.filter(user=user)
     previousHeader.delete()
     # Header.objects.get(username=username).delete()
     form = FrontPageForm(request.POST)
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/login')
     if form.is_valid:
         header = form.save(commit = False)
         header.user = request.user
@@ -39,8 +52,44 @@ def post_frontpage_header(request):
         return HttpResponseRedirect('/home')
 
 
-# User/login/out views
+def post_frontpage_about(request):
+    user = request.user
+    previousArticle = About.objects.filter(user=user)
+    previousArticle.delete()
+    form = AboutForm(request.POST)
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/login')
+    if form.is_valid:
+        article = form.save(commit = False)
+        article.user = request.user
+        article.save()
+        return HttpResponseRedirect('/home')
 
+#
+# def post_frontpage_section(request):
+#     form = MenuSection(request.POST)
+#     if not request.user.is_authenticated:
+#         return HttpResponseRedirect('/login')
+#     if form.is_valid:
+#         section = form.save(commit=false)
+#         section.user =request.user
+#         section.save()
+#         return HttpResponseRedirect('')
+
+def post_frontpage_item(request):
+    form = MenuItem(request.POST)
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/login')
+    if form.is_valid:
+        item = form.save(commit = False)
+        item.user = request.user
+        item.save()
+        return HttpResponseRedirect('/home')
+
+
+
+
+# User/login/out views
 
 def signup(request):
     if request.method == 'POST':
@@ -77,6 +126,10 @@ def login_view(request):
         form = LoginForm()
         return render(request, 'login.html', {'form': form})
 
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
 
 
 

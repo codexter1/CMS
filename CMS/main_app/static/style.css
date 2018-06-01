@@ -9,10 +9,26 @@ body {
 h1 {
   color: #efecec;
   text-transform: uppercase;
-  font-size: 40px;
+  font-size: 80px;
   line-height: 50px;
   font-weight: 400;
   margin-top: 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.cms-nav {
+  background: #232323;
+}
+
+.cms-nav, p {
+  margin: 0;
 }
 
 .container {
@@ -27,8 +43,44 @@ h1 {
   text-align: center;
 }
 
+.menu-container {
+  background: white;
+  padding-bottom: 50px
+}
+
+.ourstory-container {
+  background-image: url("https://images.unsplash.com/photo-1481798699994-481e7c0a8282?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4c02fb2ca219a8fffb55f292aa483861&auto=format&fit=crop&w=1950&q=80");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.ourstory-description {
+  background: rgba(0,0,0,.5);
+  color: white;
+  text-align: center;
+  margin: 0 150px;
+  padding: 150px;
+}
+
+.section-title {
+  text-align: center;
+  padding: 25px 15px 15px 15px;
+  margin: 0;
+  background: white;
+}
+
+.grid {
+  padding: 0 250px;
+}
+
+.menu-item {
+  text-align: center;
+  margin: 0 15px;
+  padding: 15px;
+}
+
 #bg-transparent {
-  background-color: rgba(255,0,0,0);
+  background-color: rgba(255,255,255,0);
   box-shadow: none;
 }
 
@@ -44,16 +96,39 @@ h1 {
   color: white;
 }
 
-#displaylogout {
-  margin-left: 170px;
+#itemsubmit {
+  color: white;
 }
 
-#displayedit {
-  float: right;
-  margin-right: 10px;
+#articlesubmit {
+  color: white;
+}
+
+
+#headerform {
+  margin-bottom: 40px;
 }
 
 #preview {
   margin-right: 170px;
   margin-top: 10px;
+}
+
+/*          landing           */
+.landing-content {
+  padding-top: 250px;
+  text-align: center;
+}
+
+#black-text {
+  color: black;
+}
+
+/*          CMS form          */
+.cms-form {
+  color: black;
+}
+
+.cms-button {
+  background-color: rgb(66, 134, 244);
 }

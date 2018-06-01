@@ -4,45 +4,24 @@
   <head>
     <meta charset="utf-8">
     <title>Web Chef</title>
-    <style media="screen">
-      h1 {
-        font-size: 50px;
-        text-align: center;
-        color: white;
-      }
-      .buttonbox {
-        margin-left: 41%;
-      }
-
-    </style>
     <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="{% static 'materialize.css' %}"  media="screen,projection"/>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script type="text/javascript" href="{% static 'app.js' %}">
-
-    </script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
   </head>
-  <body class ="#ffb300 amber darken-1">
-    <header>
-      <h1>WEB CHEF</h1>
-    </header>
-    <div class="buttonbox">
-      <a class="waves-effect waves-light btn-large" href="login/">Log In</a>
-      <a class="waves-effect waves-light btn-large" href="signup/">Sign Up</a>
-    </div>
+  <body>
+    <main>
+      <div class="landing-content">
+        <header>
+          <h1 id="black-text">WEB CHEF</h1>
+        </header>
+        <div class="buttonbox">
+          <a class="waves-effect red lighten-1 btn-large" href="login/">Log In</a>
+          <a class="waves-effect red lighten-1 btn-large" href="signup/">Sign Up</a>
+        </div>
+      </div>
+    </main>
 
-    <div class="carousel">
-      <a class="carousel-item"><img src="https://images.unsplash.com/photo-1523705348086-35732b297982?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1c35fb29b7c5170f06fb3f036fb9c746&auto=format&fit=crop&w=500&q=60"></a>
-      <a class="carousel-item"><img src="https://images.unsplash.com/photo-1489209909448-8926a2640f1f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=785575187de5e2b82491b32a81faf347&auto=format&fit=crop&w=500&q=60"></a>
-      <a class="carousel-item"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fada82e527ef9eeaa1faed34043b425b&auto=format&fit=crop&w=500&q=60"></a>
-      <a class="carousel-item"><img src="https://images.unsplash.com/photo-1507914372368-b2b085b925a1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e29a66f915259fa90f82c55edfdd4a7a&auto=format&fit=crop&w=500&q=60"></a>
-      <a class="carousel-item"><img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-0.3.5&s=f8c6ddb39fc05dacea551c00f8d7796b&auto=format&fit=crop&w=500&q=60"></a>
-    </div>
-
-
+    <script type="text/javascript" href="{% static 'app.js' %}"></script>
   </body>
 </html>

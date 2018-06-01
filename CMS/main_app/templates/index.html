@@ -16,8 +16,8 @@
   </head>
   <body>
     <div class="cms-nav">
-      <a href="{% url 'logout' %}" class="btn waves-effect waves-light">Logout</a>
-      <a href="/home" class="btn waves-effect waves-light">Preview</a>
+      <a href="{% url 'logout' %}" class="btn waves-effect red lighten-1">Logout</a>
+      <a href="/home" class="btn waves-effect red lighten-1">Preview</a>
     </div>
 
   <h3 class="formhs">Give a background and Page Title!</h3>
@@ -25,7 +25,7 @@
       {% csrf_token %}
       <input type="text" name="image" value="" placeholder="image url here">
       <input type="text" name="title" value="" placeholder="header title here">
-      <input id="cmsubmit" class="btn waves-effect waves-light" type="submit" value="Submit"/>
+      <input id="cmsubmit" class="btn waves-effect red lighten-1" type="submit" value="Submit"/>
   </form>
 
 <div class="cms-form">
@@ -34,7 +34,7 @@
       {% csrf_token %}
       <input type="text" name="menu_item" value="" placeholder="menu item">
       <input type="text" name="item_info" value="" placeholder="item description">
-      <input id="itemsubmit" class="btn waves-effect waves-light" type="submit" value="Submit"/>
+      <input id="itemsubmit" class="btn waves-effect red lighten-1" type="submit" value="Submit"/>
   </form>
 
   <h3 class="formhs">Write About Your Business</h3>
@@ -42,7 +42,7 @@
     {% csrf_token %}
     <input type="text" name="article_title" value="" placeholder="article title here">
     <input type="text" name="article" value="" placeholder="about your business..">
-    <input id="articlesubmit" class="btn waves-effect waves-light" type="submit" value="Submit"/>
+    <input id="articlesubmit" class="btn waves-effect red lighten-1" type="submit" value="Submit"/>
   </form>
 </div>
 

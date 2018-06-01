@@ -94,7 +94,6 @@ a:hover {
 
 #cmsubmit {
   color: white;
-  /* background-color: rgb(66, 134, 244); */
 }
 
 #itemsubmit {
@@ -119,6 +118,10 @@ a:hover {
 .landing-content {
   padding-top: 250px;
   text-align: center;
+}
+
+#black-text {
+  color: black;
 }
 
 /*          CMS form          */

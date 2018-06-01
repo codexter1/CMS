@@ -4,14 +4,9 @@
   <head>
     <meta charset="utf-8">
     <title>Home Page</title>
-    <link type="text/css" rel="stylesheet" href="{% static 'style.css' %}"/>
-    <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="{% static 'materialize.css' %}"  media="screen,projection"/>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="{% static 'style.css' %}"/>
 
   </head>
   {% for header in header %}
@@ -45,6 +40,35 @@
         <h1>{{header.title}}</h1>
       </section>
     </header>
+    <main>
+      <div class="menu-container">
+        <div class="section-title">
+          <h2>Our Menu</h2>
+        </div>
+        <div class="grid">
+          <div class="menu-item">
+            <h5>Braised Ribs</h5>
+            <p>Nuts, dried fruit, egg yolk, snickers bar</p>
+            <hr>
+          </div>
+          <div class="menu-item">
+            <h5>Fancy Shmancy Thing</h5>
+            <p>Some fancy stuff, more fancy, gold flakes</p>
+            <hr>
+          </div>
+          <div class="menu-item">
+            <h5>Braised Ribs</h5>
+            <p>Nuts, dried fruit, egg yolk, snickers bar</p>
+            <hr>
+          </div>
+          <div class="menu-item">
+            <h5>Fancy Shmancy Thing</h5>
+            <p>Some fancy stuff, more fancy, gold flakesSome fancy stuff</p>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{% static 'app.js' %}"></script>
